@@ -1,0 +1,28 @@
+{
+    "name": "moay/php-fints-database",
+    "description": "Provides a database of german banks with fints settings",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "moay",
+            "email": "mv@moay.de"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "moay/fints-db",
+                "version": "master",
+                "dist": {
+                    "type": "file",
+                    "url": "https://github.com/moay/fints-institute-db/raw/master/fints-institutes.json",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "moay/fints-db": "dev-master"
+    }
+}
