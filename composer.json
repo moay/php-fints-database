@@ -23,6 +23,14 @@
         }
     ],
     "require": {
-        "moay/fints-db": "dev-master"
+        "php": ">=7.0.0",
+        "moay/fints-db": "dev-master",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "moay\\FintsDatabase\\": "src",
+            "moay\\FintsDatabase\\Test\\": "tests"
+        }
     }
 }
