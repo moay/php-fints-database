@@ -121,4 +121,20 @@ class DatabaseTest extends TestCase
         $this->assertCount(0, $database->search('3',1,1,0));
         $this->assertCount(0, $database->search('4',1,1,1,0));
     }
+
+    public function testDatabaseSearchAllowsStrangeBLZ()
+    {
+        $customConfig = '[{"blz": "12345678"}]';
+        file_put_contents($this->customTestFile, $customConfig);
+
+        $database = new Database($this->customTestFile);
+        $this->assertCount(1, $database->search('12345678'));
+        $this->assertCount(1, $database->search('123 456 78'));
+        $this->assertCount(1, $database->search('123-456-78'));
+        $this->assertCount(1, $database->search('12-3-4-5-6-78'));
+        $this->assertCount(1, $database->search('1 2 3 4 5 6 7 8 '));
+        $this->assertCount(1, $database->search('  12 345 678'));
+        $this->assertCount(0, $database->search('21345678'));
+        $this->assertCount(1, $database->search('123 45 '));
+    }
 }

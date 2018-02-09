@@ -47,7 +47,8 @@ class Database
     ) {
         $matches = [];
         foreach ($this->instituteData as $institute) {
-            if ($searchBlz && isset($institute->blz) && strpos($institute->blz, $string) !== false) {
+            $cleanedString = preg_replace('/[ \-\_]/', '', $string);
+            if ($searchBlz && isset($institute->blz) && strpos($institute->blz, $cleanedString) !== false) {
                 $matches[] = $institute;
                 continue;
             }
