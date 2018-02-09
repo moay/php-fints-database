@@ -8,22 +8,9 @@
             "email": "mv@moay.de"
         }
     ],
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "moay/fints-db",
-                "version": "99.0.0",
-                "dist": {
-                    "type": "file",
-                    "url": "https://github.com/moay/fints-institute-db/releases/download/v99.0.0/fints-institutes.json"
-                }
-            }
-        }
-    ],
     "require": {
         "php": ">=7.0.0",
-        "moay/fints-db": "99.0.0"
+        "moay/fints-db": "^99"
     },
     "require-dev": {
         "phpunit/phpunit": "^6"

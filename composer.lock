@@ -4,18 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cee8e3c1dde592bd38cb4cb82c2d6cc",
+    "content-hash": "1e1f48632a18caa2b7768243153f02eb",
     "packages": [
         {
             "name": "moay/fints-db",
-            "version": "99.0.0",
-            "dist": {
-                "type": "file",
-                "url": "https://github.com/moay/fints-institute-db/releases/download/v99.0.0/fints-institutes.json",
-                "reference": null,
-                "shasum": null
+            "version": "v99.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moay/fints-institute-db.git",
+                "reference": "60e3702005c2b3f49d3cef5c4157b53c355e3429"
             },
-            "type": "library"
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moay/fints-institute-db/zipball/60e3702005c2b3f49d3cef5c4157b53c355e3429",
+                "reference": "60e3702005c2b3f49d3cef5c4157b53c355e3429",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-0"
+            ],
+            "authors": [
+                {
+                    "name": "moay",
+                    "email": "mv@moay.de"
+                }
+            ],
+            "description": "Fints db as json file",
+            "time": "2018-02-09T08:30:41+00:00"
         }
     ],
     "packages-dev": [
