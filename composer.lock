@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3d61bb54a2da6afc7a724c87f764dfe",
+    "content-hash": "5cee8e3c1dde592bd38cb4cb82c2d6cc",
     "packages": [
         {
             "name": "moay/fints-db",
-            "version": "master",
+            "version": "99.0.0",
             "dist": {
                 "type": "file",
-                "url": "https://github.com/moay/fints-institute-db/raw/master/fints-institutes.json",
-                "reference": "master",
+                "url": "https://github.com/moay/fints-institute-db/releases/download/v99.0.0/fints-institutes.json",
+                "reference": null,
                 "shasum": null
             },
             "type": "library"
@@ -1479,9 +1479,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "moay/fints-db": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
