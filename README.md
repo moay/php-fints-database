@@ -45,7 +45,7 @@ $banks = moay\FintsDatabase\FintsDatabase::search('120 300 00');
 $banks = moay\FintsDatabase\FintsDatabase::search('120-300-00');
 ```
 
-You will allways get an array of banks that match your query.
+You will always get an array of banks that match your query.
 
 #### Getting bank details
 
