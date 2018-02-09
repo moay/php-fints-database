@@ -8,7 +8,7 @@ Please be aware that the entire library is provided as is without any warranty o
 
 The package can be installed via composer:
 
-    composer install moay/php-fints-database
+    composer require moay/php-fints-database
 
 There will be chances related to the bank specifications, make sure to update the package every once in a while. New versions will be released when specifications change.
 
