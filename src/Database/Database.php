@@ -4,6 +4,7 @@ namespace moay\FintsDatabase\Database;
 
 use moay\FintsDatabase\Bank\Bank;
 use moay\FintsDatabase\Bank\BankFactory;
+use moay\FintsDatabase\Exception\DatabaseFileInvalidException;
 use moay\FintsDatabase\Exception\DatabaseFileNotFoundException;
 
 /**
@@ -19,11 +20,12 @@ class Database
 
     /**
      * Database constructor.
+     * @param string $databaseFile
      * @throws DatabaseFileNotFoundException
      */
-    public function __construct()
+    public function __construct(string $databaseFile = '')
     {
-        $this->loadDatabase();
+        $this->loadDatabase($databaseFile);
     }
 
     /**
@@ -89,12 +91,20 @@ class Database
     /**
      * Loads the institutions data
      *
+     * @param string $databaseFile
      * @throws DatabaseFileNotFoundException
+     * @throws DatabaseFileInvalidException
      */
-    private function loadDatabase()
+    private function loadDatabase(string $databaseFile)
     {
-        $path = $this->determineDatabaseLocation();
-        $this->instituteData = json_decode(file_get_contents($path));
+        if ($databaseFile != '') {
+           $path = $databaseFile;
+        } else {
+            $path = $this->determineDatabaseLocation();
+        }
+        if (!($this->instituteData = json_decode(file_get_contents($path)))) {
+           throw new DatabaseFileInvalidException('Database file contains invalid json.');
+        }
     }
 
     /**
@@ -106,19 +116,10 @@ class Database
     private function determineDatabaseLocation()
     {
         // If both the library and the database file are located in the vendors folder
-        $path1 = __DIR__
-            . DIRECTORY_SEPARATOR . '..'
-            . DIRECTORY_SEPARATOR . '..'
-            . DIRECTORY_SEPARATOR . '..'
-            . DIRECTORY_SEPARATOR . self::DATABASE_FILE;
+        $path1 = join(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', self::DATABASE_FILE]);
 
         // If working with the library itself
-        $path2 = __DIR__
-            . DIRECTORY_SEPARATOR . '..'
-            . DIRECTORY_SEPARATOR . '..'
-            . DIRECTORY_SEPARATOR . 'vendor'
-            . DIRECTORY_SEPARATOR . 'moay'
-            . DIRECTORY_SEPARATOR . self::DATABASE_FILE;
+        $path2 = join(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'vendor', 'moay', self::DATABASE_FILE]);
 
         if (file_exists($path1)) {
             return $path1;
