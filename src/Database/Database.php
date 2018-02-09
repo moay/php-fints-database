@@ -35,7 +35,7 @@ class Database
      * @param bool $searchBlz
      * @param bool $searchName
      * @param bool $searchLocation
-     * @param bool $searchOrganisation
+     * @param bool $searchOrganization
      * @return Bank[]
      */
     public function search(
@@ -43,7 +43,7 @@ class Database
         $searchBlz = true,
         $searchName = true,
         $searchLocation = true,
-        $searchOrganisation = true
+        $searchOrganization = true
     ) {
         $matches = [];
         foreach ($this->instituteData as $institute) {
@@ -60,7 +60,7 @@ class Database
                 $matches[] = $institute;
                 continue;
             }
-            if ($searchOrganisation && isset($institute->organisation) && stripos($institute->organisation, $string) !== false) {
+            if ($searchOrganization && isset($institute->organisation) && stripos($institute->organisation, $string) !== false) {
                 $matches[] = $institute;
                 continue;
             }
