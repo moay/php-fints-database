@@ -24,7 +24,7 @@ class BankFactory
             'name' => 'setName',
             'location' => 'setLocation',
             "organisation" => 'setOrganization',
-            'pinTanUrl' => 'setPinTanUrl',
+            'pinTanURL' => 'setPinTanUrl',
             'protocol' => 'setFintsVersion',
             "hbciDomain" => 'setHbciUrl',
             "hbciAddress" => 'setHbciIp',
